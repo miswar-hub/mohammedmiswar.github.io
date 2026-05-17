@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigPlanetarium &mdash; Saturn</title>
+  <meta name="description" content="Explore Saturn — the ringed gas giant. Learn about its rings, moons, and statistics." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- STAR CANVAS -->
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-logo">
+      <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="30" height="30" />
+      <span>BigPlanetarium</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"   class="nav-link">Home</a></li>
+      <li><a href="saturn.html"  class="nav-link active">Saturn</a></li>
+      <li><a href="explore.html" class="nav-link">Explore</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- SATURN HERO -->
+  <section class="page-hero" aria-labelledby="saturn-hero-h">
+    <div class="page-hero-content">
+      <p class="hero-tag">Featured Planet</p>
+      <h1 id="saturn-hero-h" class="hero-title">
+        <span class="word">Saturn</span>
+      </h1>
+      <p class="hero-sub">
+        The jewel of the Solar System &mdash; a gas giant wrapped in a breathtaking
+        ring system of ice and rock, orbited by 146 moons.
+      </p>
+      <a href="#saturn-main" class="btn btn-primary">Learn More</a>
+    </div>
+
+    <!-- CSS Saturn in the hero -->
+    <div class="hero-saturn-wrap" aria-hidden="true">
+      <div class="saturn-body">
+        <div class="saturn-band b1"></div>
+        <div class="saturn-band b2"></div>
+        <div class="saturn-band b3"></div>
+        <div class="saturn-ring-container">
+          <div class="saturn-ring ring-a"></div>
+          <div class="saturn-ring ring-b"></div>
+          <div class="saturn-ring ring-c"></div>
+        </div>
+        <div class="saturn-moon"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SATURN INFO + TABS -->
+  <section id="saturn-main" class="section planet-section" aria-labelledby="planet-heading">
+    <div class="section-inner">
+      <div class="section-label">Planet Profile</div>
+      <h2 id="planet-heading" class="section-title">Saturn &mdash; Lord of the Rings</h2>
+
+      <div class="planet-layout">
+
+        <!-- Saturn SVG artwork -->
+        <div class="saturn-img-wrap">
+          <img
+            src="./images/saturn.jpg"
+            alt="Illustrated view of Saturn with its ring system and nearby moon Titan"
+            class="saturn-page-img"
+            width="500" height="350"
+          />
+        </div>
+
+        <!-- Tab panel -->
+        <div class="planet-info">
+          <div class="info-tabs" role="tablist" aria-label="Saturn information tabs">
+            <button class="tab active" role="tab" aria-selected="true"  data-tab="overview">Overview</button>
+            <button class="tab"        role="tab" aria-selected="false" data-tab="stats">Stats</button>
+            <button class="tab"        role="tab" aria-selected="false" data-tab="moons">Moons</button>
+          </div>
+
+          <div class="tab-content" id="tab-overview" role="tabpanel">
+            <p>Saturn is the <strong>sixth planet</strong> from the Sun and the
+               <strong>second largest</strong> in our Solar System. Its stunning ring
+               system &mdash; made of billions of ice and rock particles &mdash; makes it
+               one of the most recognisable objects in space.</p>
+            <p>Saturn is a <strong>gas giant</strong>, meaning it has no solid surface.
+               If you could drop a spacecraft in, it would simply sink deeper into the
+               gas until crushed by pressure.</p>
+            <p>Despite its enormous size, Saturn is the <strong>least dense planet</strong>
+               in the Solar System &mdash; it is so light relative to its volume that it
+               would float on water.</p>
+          </div>
+
+          <div class="tab-content hidden" id="tab-stats" role="tabpanel">
+            <ul class="stat-list" aria-label="Saturn statistics">
+              <li><span>Distance from Sun</span> <strong>1.43 billion km</strong></li>
+              <li><span>Day length</span>         <strong>10.7 hours</strong></li>
+              <li><span>Year length</span>        <strong>29.4 Earth years</strong></li>
+              <li><span>Temperature</span>        <strong>&minus;178&deg;C</strong></li>
+              <li><span>Diameter</span>           <strong>116,460 km</strong></li>
+              <li><span>Number of moons</span>    <strong>146 (and counting)</strong></li>
+              <li><span>Ring groups</span>        <strong>7 main rings</strong></li>
+            </ul>
+          </div>
+
+          <div class="tab-content hidden" id="tab-moons" role="tabpanel">
+            <p>Saturn has <strong>146 confirmed moons</strong> &mdash; more than any other planet.</p>
+            <ul class="moon-list">
+              <li>
+                <span class="moon-dot titan"></span>
+                <span><strong>Titan</strong> &mdash; larger than Mercury, with a thick atmosphere and liquid methane lakes</span>
+              </li>
+              <li>
+                <span class="moon-dot enceladus"></span>
+                <span><strong>Enceladus</strong> &mdash; jets of water ice shoot from its south pole, hinting at a hidden ocean</span>
+              </li>
+              <li>
+                <span class="moon-dot mimas"></span>
+                <span><strong>Mimas</strong> &mdash; its huge crater makes it look remarkably like the Death Star</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RINGS SECTION -->
+  <section class="section rings-section" aria-labelledby="rings-heading">
+    <div class="section-inner">
+      <div class="section-label">The Ring System</div>
+      <h2 id="rings-heading" class="section-title">A Ring System Like No Other</h2>
+      <div class="rings-grid">
+
+        <div class="ring-card">
+          <div class="ring-card-icon ice" aria-hidden="true"></div>
+          <h3>Made of Ice &amp; Rock</h3>
+          <p>Saturn&rsquo;s rings are made of countless particles &mdash; from tiny grains
+             to chunks as large as a house &mdash; composed mostly of water ice with some
+             rocky debris.</p>
+        </div>
+
+        <div class="ring-card">
+          <div class="ring-card-icon wide" aria-hidden="true"></div>
+          <h3>Incredibly Wide</h3>
+          <p>The rings stretch up to <strong>282,000 km</strong> from Saturn&rsquo;s
+             centre &mdash; nearly the full distance from the Earth to the Moon.</p>
+        </div>
+
+        <div class="ring-card">
+          <div class="ring-card-icon thin" aria-hidden="true"></div>
+          <h3>Surprisingly Thin</h3>
+          <p>Despite being so wide, the rings are on average only <strong>10&ndash;100
+             metres</strong> thick &mdash; thinner than a six-storey building, relative
+             to their width.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section media-section" aria-labelledby="saturn-video-h">
+    <div class="section-inner">
+      <div class="section-label">Watch &amp; Learn</div>
+      <h2 id="saturn-video-h" class="section-title">Saturn Up Close</h2>
+      <div class="media-grid">
+        <div class="video-wrap">
+          <iframe
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/epZdZaEQhS0"
+            title="Saturn — NASA Cassini mission highlights"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            aria-label="YouTube video: Saturn Cassini mission highlights">
+          </iframe>
+        </div>
+        <div class="media-text">
+          <h3>The Cassini Mission</h3>
+          <p>NASA&rsquo;s Cassini spacecraft spent <strong>13 years</strong> orbiting
+             Saturn, sending back stunning images and discoveries about the planet,
+             its rings, and its moons.</p>
+          <p>Cassini revealed that <strong>Enceladus</strong> has a liquid water ocean
+             beneath its icy surface &mdash; making it one of the best candidates in
+             the Solar System for finding life.</p>
+          <div class="media-badges" aria-label="Content features">
+            <span class="badge">Video</span>
+            <span class="badge">NASA</span>
+            <span class="badge">All Ages</span>
+            <span class="badge">Subtitled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE NAVIGATION -->
+  <div class="page-nav-strip">
+    <a href="index.html"   class="page-nav-btn">&larr; Home</a>
+    <a href="explore.html" class="page-nav-btn">Explore All Planets &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="22" height="22" />
+        BigPlanetarium
+      </div>
+      <p>Bristol&rsquo;s home of space education. Science is for everyone.</p>
+      <nav aria-label="Footer Navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="saturn.html">Saturn</a></li>
+          <li><a href="explore.html">Explore</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; 2025 BigPlanetarium, Bristol. Made for curious minds.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
