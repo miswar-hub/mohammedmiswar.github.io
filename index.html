@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigPlanetarium &mdash; Home</title>
+  <meta name="description" content="BigPlanetarium — Bristol's home of space education. Explore the Milky Way and our Solar System." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- STAR CANVAS -->
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-logo">
+      <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="30" height="30" />
+      <span>BigPlanetarium</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"   class="nav-link active">Home</a></li>
+      <li><a href="saturn.html"  class="nav-link">Saturn</a></li>
+      <li><a href="explore.html" class="nav-link">Explore</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO — LANDING PAGE -->
+  <section id="home" class="hero" aria-labelledby="hero-heading">
+    <img src="./images/hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true" />
+
+    <div class="hero-content">
+      <p class="hero-tag">Bristol&rsquo;s Planetarium</p>
+      <h1 id="hero-heading" class="hero-title">
+        <span class="word">Discover</span>
+        <span class="word accent">The</span>
+        <span class="word">Universe</span>
+      </h1>
+      <p class="hero-sub">
+        From the swirling arms of the Milky Way to the storms of Jupiter &mdash;
+        space is for everyone. Let&rsquo;s explore it together.
+      </p>
+      <div class="hero-cta">
+        <a href="#milkyway"    class="btn btn-primary">Our Galaxy</a>
+        <a href="explore.html" class="btn btn-ghost">Explore Planets</a>
+      </div>
+    </div>
+
+    <!-- CSS-only animated solar system (decorative) -->
+    <div class="hero-solar" aria-hidden="true">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <div class="sun-glow"></div>
+      <div class="planet-orbit orbit-1"><div class="planet p-mercury"></div></div>
+      <div class="planet-orbit orbit-2"><div class="planet p-earth"></div></div>
+      <div class="planet-orbit orbit-3"><div class="planet p-mars"></div></div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- MILKY WAY OVERVIEW -->
+  <section id="milkyway" class="section milkyway-section" aria-labelledby="mw-heading">
+    <div class="section-inner">
+      <div class="section-label">Our Galaxy</div>
+      <h2 id="mw-heading" class="section-title">The Milky Way</h2>
+
+      <div class="mw-grid">
+        <div class="mw-text">
+          <p>The Milky Way is a <strong>barred spiral galaxy</strong> &mdash; our cosmic home.
+             It stretches roughly <strong>100,000 light-years</strong> across and contains
+             between <strong>100&ndash;400 billion stars</strong>.</p>
+          <p>Our Solar System sits about <strong>26,000 light-years</strong> from the galactic
+             centre, tucked inside the Orion Arm &mdash; one of the galaxy&rsquo;s minor spiral arms.</p>
+          <p>At the very heart of the Milky Way lurks a <strong>supermassive black hole</strong>
+             called <em>Sagittarius A*</em>, with a mass about 4 million times that of our Sun.</p>
+
+          <div class="fact-strip" role="list" aria-label="Key Milky Way facts">
+            <div class="fact" role="listitem">
+              <span class="fact-num">200B+</span>
+              <span class="fact-label">Stars</span>
+            </div>
+            <div class="fact" role="listitem">
+              <span class="fact-num">100K</span>
+              <span class="fact-label">Light-years wide</span>
+            </div>
+            <div class="fact" role="listitem">
+              <span class="fact-num">4M</span>
+              <span class="fact-label">Solar masses &mdash; black hole</span>
+            </div>
+          </div>
+
+          <!-- Buttons linking to other pages -->
+          <div class="mw-links">
+            <a href="saturn.html"  class="btn btn-primary">Visit Saturn</a>
+            <a href="explore.html" class="btn btn-ghost">All Planets</a>
+          </div>
+        </div>
+
+        <div class="mw-visual">
+          <img
+            src="./images/milkyway.jpg"
+            alt="Illustrated overhead view of the Milky Way galaxy showing spiral arms and a glowing core"
+            class="mw-img"
+            width="400" height="250"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="22" height="22" />
+        BigPlanetarium
+      </div>
+      <p>Bristol&rsquo;s home of space education. Science is for everyone.</p>
+      <nav aria-label="Footer Navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="saturn.html">Saturn</a></li>
+          <li><a href="explore.html">Explore</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; 2025 BigPlanetarium, Bristol. Made for curious minds.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
