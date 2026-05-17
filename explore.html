@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigPlanetarium &mdash; Explore</title>
+  <meta name="description" content="Explore all eight planets of our Solar System. Click a planet to learn more about it." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- STAR CANVAS -->
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-logo">
+      <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="30" height="30" />
+      <span>BigPlanetarium</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"   class="nav-link">Home</a></li>
+      <li><a href="saturn.html"  class="nav-link">Saturn</a></li>
+      <li><a href="explore.html" class="nav-link active">Explore</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- EXPLORE HERO -->
+  <section class="page-hero explore-hero" aria-labelledby="explore-hero-h">
+    <div class="page-hero-content">
+      <p class="hero-tag">Our Solar System</p>
+      <h1 id="explore-hero-h" class="hero-title">
+        <span class="word">Explore</span>
+        <span class="word accent">Every</span>
+        <span class="word">Planet</span>
+      </h1>
+      <p class="hero-sub">
+        Eight planets. Eight unique worlds. Click any planet below to discover
+        what makes it special.
+      </p>
+    </div>
+
+    <!-- CSS mini solar system -->
+    <div class="hero-solar" aria-hidden="true">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <div class="sun-glow"></div>
+      <div class="planet-orbit orbit-1"><div class="planet p-mercury"></div></div>
+      <div class="planet-orbit orbit-2"><div class="planet p-earth"></div></div>
+      <div class="planet-orbit orbit-3"><div class="planet p-mars"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PLANET PICKER
+       All planet content is in HTML.
+       JS only shows/hides the articles.
+  ══════════════════════════════════════ -->
+  <section class="section explore-section" aria-labelledby="picker-heading">
+    <div class="section-inner">
+      <div class="section-label">Pick a Planet</div>
+      <h2 id="picker-heading" class="section-title">Which world interests you?</h2>
+      <p class="section-sub">Click any planet button below to read about it.</p>
+
+      <!-- 8 PLANET BUTTONS — each points to its article via data-target -->
+      <div class="solar-picker" role="group" aria-label="Solar System planet picker">
+
+        <button class="picker-btn" data-target="info-mercury" aria-label="Learn about Mercury">
+          <img src="./images/mercury.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Mercury</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-venus" aria-label="Learn about Venus">
+          <img src="./images/venus.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Venus</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-earth" aria-label="Learn about Earth">
+          <img src="./images/earth.jpg " alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Earth</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-mars" aria-label="Learn about Mars">
+          <img src="./images/mars.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Mars</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-jupiter" aria-label="Learn about Jupiter">
+          <img src="./images/jupiter.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Jupiter</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-saturn" aria-label="Learn about Saturn">
+          <img src="./images/saturn.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Saturn</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-uranus" aria-label="Learn about Uranus">
+          <img src="./images/uranus.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Uranus</span>
+        </button>
+
+        <button class="picker-btn" data-target="info-neptune" aria-label="Learn about Neptune">
+          <img src="./images/neptune.jpg" alt="" class="picker-planet-icon" aria-hidden="true" />
+          <span class="picker-planet-name">Neptune</span>
+        </button>
+
+      </div><!-- end .solar-picker -->
+
+      <!-- PLANET INFO CARDS — all written in HTML, JS shows the right one -->
+      <div class="planet-card" id="planetCard" aria-live="polite" aria-atomic="true">
+
+        <p class="card-prompt" id="cardPrompt">Select a planet above to begin your journey</p>
+
+        <!-- MERCURY -->
+        <article class="planet-info-panel hidden" id="info-mercury" aria-label="Mercury information">
+          <div class="card-header">
+            <img src="./images/mercury.jpg" alt="Mercury" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Mercury</div>
+              <div class="card-type">Rocky Planet</div>
+            </div>
+          </div>
+          <p class="card-desc">Mercury is the smallest planet and the closest to the Sun. A single day on Mercury is longer than its year &mdash; it spins very slowly but orbits the Sun incredibly fast.</p>
+          <div class="card-facts" aria-label="Mercury key facts">
+            <span class="card-fact">77M km from Sun</span>
+            <span class="card-fact">Day: 59 Earth days</span>
+            <span class="card-fact">Moons: 0</span>
+          </div>
+        </article>
+
+        <!-- VENUS -->
+        <article class="planet-info-panel hidden" id="info-venus" aria-label="Venus information">
+          <div class="card-header">
+            <img src="./images/venus.jpg" alt="Venus" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Venus</div>
+              <div class="card-type">Terrestrial Planet</div>
+            </div>
+          </div>
+          <p class="card-desc">Venus is the hottest planet at 465&deg;C &mdash; even hotter than Mercury. A thick blanket of carbon dioxide traps heat in a runaway greenhouse effect. It also spins backwards.</p>
+          <div class="card-facts" aria-label="Venus key facts">
+            <span class="card-fact">Temp: 465&deg;C</span>
+            <span class="card-fact">Day: 243 Earth days</span>
+            <span class="card-fact">Moons: 0</span>
+          </div>
+        </article>
+
+        <!-- EARTH -->
+        <article class="planet-info-panel hidden" id="info-earth" aria-label="Earth information">
+          <div class="card-header">
+            <img src="./images/earth.jpg" alt="Earth" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Earth</div>
+              <div class="card-type">Terrestrial Planet</div>
+            </div>
+          </div>
+          <p class="card-desc">Our home &mdash; the only planet known to support life. Earth has liquid water, a protective magnetic field, and just the right atmosphere to keep conditions stable for living things.</p>
+          <div class="card-facts" aria-label="Earth key facts">
+            <span class="card-fact">150M km from Sun</span>
+            <span class="card-fact">Day: 24 hours</span>
+            <span class="card-fact">Moons: 1</span>
+          </div>
+        </article>
+
+        <!-- MARS -->
+        <article class="planet-info-panel hidden" id="info-mars" aria-label="Mars information">
+          <div class="card-header">
+            <img src="./images/mars.jpg" alt="Mars" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Mars</div>
+              <div class="card-type">Rocky Planet</div>
+            </div>
+          </div>
+          <p class="card-desc">Mars has the tallest volcano in the Solar System (Olympus Mons) and a canyon that would stretch across the USA. NASA rovers are actively exploring its surface today.</p>
+          <div class="card-facts" aria-label="Mars key facts">
+            <span class="card-fact">Temp: &minus;60&deg;C avg</span>
+            <span class="card-fact">Day: 24.6 hours</span>
+            <span class="card-fact">Moons: 2</span>
+          </div>
+        </article>
+
+        <!-- JUPITER -->
+        <article class="planet-info-panel hidden" id="info-jupiter" aria-label="Jupiter information">
+          <div class="card-header">
+            <img src="./images/jupiter.jpg" alt="Jupiter" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Jupiter</div>
+              <div class="card-type">Gas Giant</div>
+            </div>
+          </div>
+          <p class="card-desc">Jupiter is so large that every other planet could fit inside it. Its Great Red Spot is a storm that has been swirling for over 350 years. It has 95 known moons.</p>
+          <div class="card-facts" aria-label="Jupiter key facts">
+            <span class="card-fact">Moons: 95</span>
+            <span class="card-fact">Day: 10 hours</span>
+            <span class="card-fact">Mass: 318x Earth</span>
+          </div>
+        </article>
+
+        <!-- SATURN -->
+        <article class="planet-info-panel hidden" id="info-saturn" aria-label="Saturn information">
+          <div class="card-header">
+            <img src="./images/saturn.jpg" alt="Saturn" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Saturn</div>
+              <div class="card-type">Gas Giant</div>
+            </div>
+          </div>
+          <p class="card-desc">Famous for its spectacular ring system made of ice and rock. Saturn is the least dense planet &mdash; it would float on water! It holds the record with 146 confirmed moons. <a href="saturn.html">Visit the full Saturn page &rarr;</a></p>
+          <div class="card-facts" aria-label="Saturn key facts">
+            <span class="card-fact">7 main ring groups</span>
+            <span class="card-fact">Moons: 146</span>
+            <span class="card-fact">Day: 10.7 hours</span>
+          </div>
+        </article>
+
+        <!-- URANUS -->
+        <article class="planet-info-panel hidden" id="info-uranus" aria-label="Uranus information">
+          <div class="card-header">
+            <img src="./images/uranus.jpg" alt="Uranus" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Uranus</div>
+              <div class="card-type">Ice Giant</div>
+            </div>
+          </div>
+          <p class="card-desc">Uranus rotates on its side &mdash; its axis is tilted at 98 degrees, so it essentially rolls around the Sun. Its blue-green colour comes from methane in its atmosphere.</p>
+          <div class="card-facts" aria-label="Uranus key facts">
+            <span class="card-fact">Temp: &minus;224&deg;C</span>
+            <span class="card-fact">Moons: 28</span>
+            <span class="card-fact">Tilt: 98 degrees</span>
+          </div>
+        </article>
+
+        <!-- NEPTUNE -->
+        <article class="planet-info-panel hidden" id="info-neptune" aria-label="Neptune information">
+          <div class="card-header">
+            <img src="./images/neptune.jpg" alt="Neptune" class="card-planet-icon" />
+            <div>
+              <div class="card-name">Neptune</div>
+              <div class="card-type">Ice Giant</div>
+            </div>
+          </div>
+          <p class="card-desc">Neptune has the strongest winds in the Solar System &mdash; up to 2,100 km/h. It was the first planet discovered through mathematical prediction rather than direct observation.</p>
+          <div class="card-facts" aria-label="Neptune key facts">
+            <span class="card-fact">Wind: 2,100 km/h</span>
+            <span class="card-fact">Moons: 16</span>
+            <span class="card-fact">Year: 165 Earth years</span>
+          </div>
+        </article>
+
+      </div><!-- end #planetCard -->
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="section media-section" aria-labelledby="media-heading">
+    <div class="section-inner">
+      <div class="section-label">Watch &amp; Learn</div>
+      <h2 id="media-heading" class="section-title">Space in Motion</h2>
+      <div class="media-grid">
+        <div class="video-wrap">
+          <iframe
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/libKVRa01L8"
+            title="Tour of the Solar System — NASA educational video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            aria-label="YouTube video: Tour of the Solar System">
+          </iframe>
+        </div>
+        <div class="media-text">
+          <h3>Tour the Solar System</h3>
+          <p>Take a guided video tour of all eight planets with NASA&rsquo;s official educational content. Perfect for learners of all ages &mdash; from curious five-year-olds to seasoned stargazers.</p>
+          <div class="media-badges" aria-label="Content features">
+            <span class="badge">Video</span>
+            <span class="badge">Educational</span>
+            <span class="badge">All Ages</span>
+            <span class="badge">Subtitled</span>
+          </div>
+          <p class="media-note">All our video content includes captions to support deaf and hard-of-hearing visitors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE NAVIGATION -->
+  <div class="page-nav-strip">
+    <a href="saturn.html" class="page-nav-btn">&larr; Saturn</a>
+    <a href="index.html"  class="page-nav-btn">Back to Home &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./images/saturn.jpg" alt="" aria-hidden="true" width="22" height="22" />
+        BigPlanetarium
+      </div>
+      <p>Bristol&rsquo;s home of space education. Science is for everyone.</p>
+      <nav aria-label="Footer Navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="saturn.html">Saturn</a></li>
+          <li><a href="explore.html">Explore</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; 2025 BigPlanetarium, Bristol. Made for curious minds.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
